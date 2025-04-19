@@ -1,0 +1,148 @@
+QUESTION 4: Method Overloading for Math Operations
+
+
+public class Main4 {
+
+    // Addition
+    static int operate(int a, int b) {
+        return a + b;
+    }
+
+    // Subtraction
+    static int operate(int a, int b, boolean subtract) {
+        return subtract ? (a - b) : (a + b);
+    }
+
+    // Multiplication
+    static double operate(double a, double b) {
+        return a * b;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Addition: " + operate(5, 3));
+        System.out.println("Subtraction: " + operate(10, 4, true));
+        System.out.println("Multiplication: " + operate(2.5, 4.0));
+    }
+}
+
+output:
+Addition: 8
+Subtraction: 6
+Multiplication: 10.0
+
+
+QUESTION 6: Interface and Abstraction
+
+// Interface
+interface Shape {
+    void draw();
+}
+
+// Class implementing interface
+class Circle implements Shape {
+    public void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+public class Main6 {
+    public static void main(String[] args) {
+        Shape myShape = new Circle(); // abstraction in action
+        myShape.draw();
+    }
+}
+
+output:
+Drawing a Circle
+
+
+QUESTION 7: Find the Extra Character
+
+public class Main7 {
+    public static char findTheDifference(String s, String t) {
+        int sum = 0;
+        for (char ch : t.toCharArray()) {
+            sum += ch;
+        }
+        for (char ch : s.toCharArray()) {
+            sum -= ch;
+        }
+        return (char) sum;
+    }
+
+    public static void main(String[] args) {
+        String s = "abcd";
+        String t = "abcde";
+        System.out.println("The extra letter is: " + findTheDifference(s, t));
+    }
+}
+
+output:
+s = "abcd";
+t = "abcde";
+
+
+QUESTION 8: Custom Exception
+java
+Copy code
+// Custom Exception
+class AgeNotValidException extends Exception {
+    public AgeNotValidException(String message) {
+        super(message);
+    }
+}
+
+public class Main8 {
+    static void checkAge(int age) throws AgeNotValidException {
+        if (age < 18) {
+            throw new AgeNotValidException("Age must be 18 or above to vote.");
+        } else {
+            System.out.println("You are eligible to vote.");
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            checkAge(16);
+        } catch (AgeNotValidException e) {
+            System.out.println("Caught Exception: " + e.getMessage());
+        }
+    }
+}
+
+output:
+Caught Exception: Age must be 18 or above to vote.
+
+
+
+QUESTION 10: throw vs throws
+
+// throw: used to throw an exception manually
+// throws: used in method signature to declare an exception
+
+public class Main10 {
+
+    static void divide(int a, int b) throws ArithmeticException {
+        if (b == 0) {
+            throw new ArithmeticException("Division by zero not allowed."); // throw
+        } else {
+            System.out.println("Result: " + (a / b));
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            divide(10, 0);
+        } catch (ArithmeticException e) {
+            System.out.println("Caught Exception: " + e.getMessage());
+        }
+    }
+}
+
+output:
+Caught Exception: Division by zero not allowed.
+
+
+
+
+
